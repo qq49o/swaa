@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سوا (Swaa) | الشراء الجماعي لطلاب الجامعات</title>
+<meta name="description" content="منصة سوا: اشترِ أجهزتك ومستلزماتك الدراسية بسعر الجملة مع زملائك.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#10244b;--blue:#143a80;--orange:#e8891d;--bg:#f7f9fc;--card:#fff;--text:#243047;--muted:#5d6b85;--line:#e2e8f2}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:Cairo,Tahoma,sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.wrap{max-width:1080px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-weight:800;font-size:1.4rem;text-decoration:none;color:var(--orange)}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{text-decoration:none;padding:6px 12px;border-radius:8px;font-size:.95rem}
+nav a:hover{background:rgba(255,255,255,.12)}
+.hero{background:var(--navy);color:#fff;padding:72px 0 80px}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;line-height:1.35;max-width:16em}
+.hero p{max-width:34em;margin-top:16px;color:#cfd8ea;font-size:1.1rem}
+.btn{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:600;text-decoration:none;padding:10px 24px;border-radius:10px;background:var(--orange);color:#1b1305}
+.btn.alt{background:transparent;color:#fff;border:2px solid #4a5f8f}
+.btn.sm{padding:6px 16px}
+.cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.stats{display:flex;gap:36px;margin-top:44px;flex-wrap:wrap}
+.stats b{display:block;font-size:1.6rem;color:var(--orange)}
+.stats span{color:#b5c2dc;font-size:.9rem}
+section{padding:60px 0}
+section.alt{background:#fff}
+h2{font-size:1.9rem;color:var(--blue);font-weight:800;margin-bottom:6px}
+.lead{color:var(--muted);margin-bottom:28px;max-width:40em}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card h3{color:var(--blue);font-size:1.1rem;margin-bottom:4px}
+.card p{color:var(--muted);font-size:.95rem}
+.steps{counter-reset:s;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.steps li{list-style:none;counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;position:relative}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;margin-bottom:8px}
+.steps b{color:var(--blue)}
+.steps span{display:block;color:var(--muted);font-size:.93rem}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.tab{font:inherit;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--text);padding:6px 18px;border-radius:99px}
+.tab[aria-pressed=true]{background:var(--blue);border-color:var(--blue);color:#fff}
+.tag{display:inline-block;font-size:.8rem;background:#fdf1e0;color:#9a5a08;padding:0 10px;border-radius:99px;margin-bottom:8px}
+.bar{height:10px;background:var(--line);border-radius:99px;overflow:hidden;margin:12px 0 4px}
+.bar i{display:block;height:100%;background:var(--orange);width:0;transition:width .5s}
+.meta{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);margin-bottom:12px}
+.note{font-size:.85rem;color:var(--muted);margin-top:16px}
+.two{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600;color:var(--blue)}
+details p{color:var(--muted);margin-top:6px}
+form{display:grid;gap:12px}
+label{font-weight:600;font-size:.92rem;display:grid;gap:4px}
+input,select,textarea{font:inherit;padding:10px 12px;border:1px solid #c9d3e5;border-radius:10px;background:#fff;color:var(--text);width:100%}
+.hours{display:flex;gap:12px;margin:14px 0;flex-wrap:wrap}
+.hours div{flex:1;min-width:140px;background:#eef4ff;border-radius:12px;padding:12px 16px}
+.hours div:last-child{background:#fff4e6}
+.hours small{color:var(--muted);display:block}
+.team{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.team .card{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:14px 18px}
+.team em{font-style:normal;color:var(--orange);font-weight:600;font-size:.9rem}
+footer{background:var(--navy);color:#b5c2dc;padding:32px 0;font-size:.92rem}
+footer b{color:var(--orange)}
+#toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,120px);background:var(--navy);color:#fff;padding:12px 24px;border-radius:12px;transition:transform .3s;z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+#toast.on{transform:translate(-50%,0)}
+.pic{background:linear-gradient(160deg,#eef4ff,#fdf3e4);border-radius:10px;margin-bottom:14px;padding:10px}
+.pic svg,.pic img{display:block;width:100%;height:140px;object-fit:contain}
+.pic.big svg,.pic.big img{height:200px}
+.row{display:flex;gap:8px}
+.btn.ghost{background:transparent;border:2px solid var(--blue);color:var(--blue)}
+.btn:disabled{opacity:.5;cursor:default}
+dialog{border:0;border-radius:16px;padding:26px;width:min(680px,94vw);max-height:90vh;color:var(--text);background:#fff;margin:auto}
+dialog::backdrop{background:rgba(16,36,75,.6)}
+.x{float:left;border:0;background:var(--bg);width:36px;height:36px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+.dgrid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));clear:both}
+dialog h3{color:var(--blue);margin-bottom:4px}
+dialog h4{color:var(--blue);margin:18px 0 6px}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:right;padding:8px 10px;border-bottom:1px solid var(--line);font-size:.93rem}
+th{width:34%;color:var(--muted);font-weight:600}
+dialog ul{padding-right:20px;color:var(--muted)}
+.price{margin:8px 0 2px}.price s{display:block;color:var(--muted);font-size:.85rem}.price b{font-size:1.5rem;color:var(--blue)}.price small{display:block;color:#2a7a43;font-size:.85rem}
+.im{display:block;color:var(--muted);font-size:.85rem;margin-bottom:4px}
+.big2{font-size:1.5rem;font-weight:800;color:var(--blue)}.big2 small{display:block;font-size:.85rem;font-weight:400;color:var(--muted)}
+dialog .tabs{margin-bottom:8px}
+.btn.wa{display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#07310f}
+.btn.wa:hover{background:#1ebe5a}
+.wabox{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-inline-start:5px solid #25d366;border-radius:14px;padding:18px 22px;margin-bottom:28px}
+.wabox h3{color:var(--blue)}
+.wabox p{color:var(--muted);font-size:.95rem}
+.num{direction:ltr;unicode-bidi:isolate;display:inline-block;font-weight:800;color:var(--blue)}
+.wafloat{position:fixed;bottom:20px;left:20px;z-index:30;width:56px;height:56px;border-radius:50%;background:#25d366;color:#07310f;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.28)}
+.wafloat:hover{background:#1ebe5a}
+.wafloat svg{width:30px;height:30px}
+#orderDlg fieldset{border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-width:0}
+#orderDlg legend{font-weight:600;color:var(--blue);padding:0 6px;font-size:.92rem}
+.f2{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips label{display:flex;align-items:center;gap:8px;border:1px solid #c9d3e5;border-radius:10px;padding:8px 14px;cursor:pointer;background:#fff}
+.chips input{width:auto;accent-color:var(--blue)}
+.chips label:has(input:checked){border-color:var(--blue);background:#eef4ff}
+.sum{background:#eef4ff;border-radius:12px;padding:14px 16px;font-size:.95rem}
+.sum div{display:flex;justify-content:space-between;gap:12px}
+.sum b{color:var(--blue)}
+.hide{display:none!important}
+@media(max-width:720px){nav{display:none}.hero{padding:48px 0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="#top">سوا · Swaa</a>
+<nav aria-label="القائمة الرئيسية">
+<a href="#how">كيف تعمل</a><a href="#offers">العروض</a><a href="#services">الخدمات</a><a href="#policy">الجودة والتسعير</a><a href="#support">الدعم</a><a href="#about">عن المشروع</a>
+</nav></div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+<h1>اشترِ مع زملائك، ووفّر بسعر الجملة</h1>
+<p>سوا منصة إلكترونية لطلاب الجامعات في الأردن، تجمع طلبات اللابتوب والسماعات والمستلزمات الدراسية والاشتراكات، وتشتريها مباشرة من موردين معتمدين.</p>
+<div class="cta"><a class="btn" href="#offers">شاهد العروض الجماعية</a><a class="btn alt" href="#how">كيف تعمل المنصة؟</a></div>
+<div class="stats">
+<div><b>سعر الجملة</b><span>بدل سعر القطعة المفردة</span></div>
+<div><b>موردون معتمدون</b><span>مواصفات تُراجع قبل العرض</span></div>
+<div><b>10 ص – 9 م</b><span>الدعم يومياً، والطلب إلكترونياً 24 ساعة</span></div>
+</div></div></div>
+
+<section id="how"><div class="wrap">
+<h2>كيف تعمل سوا؟</h2>
+<p class="lead">أربع خطوات من اختيار المنتج حتى الاستلام.</p>
+<ol class="steps">
+<li><b>انضم إلى مجموعة</b><span>اختر منتجاً أو عرضاً جماعياً وسجّل طلبك.</span></li>
+<li><b>اكتمال المجموعة</b><span>نجمع الطلبات المتشابهة، ونُشعرك فور اكتمال العدد وتأكيد الطلب.</span></li>
+<li><b>الشراء من المورد</b><span>نتفاوض مع المورد ونشتري بسعر الجملة، ثم نحدد السعر النهائي حسب عدد المشاركين.</span></li>
+<li><b>الدفع والاستلام</b><span>تتبّع حالة طلبك وراحل الشراء، واستلم منتجك من المقر أو بالتوزيع.</span></li>
+</ol>
+</div></section>
+
+<section id="offers" class="alt"><div class="wrap">
+<h2>العروض والطلبات الجماعية</h2>
+<p class="lead">أجهزة وسماعات من ماركات عالمية. قارن سعر السوق بسعر المجموعة، وادفع دفعة واحدة أو على أقساط. كلما زاد عدد المشاركين، انخفض السعر.</p>
+<div class="tabs" role="group" aria-label="تصفية العروض"></div>
+<div class="grid" id="offerList"></div>
+<p class="note">أسعار السوق تقديرية من إعلانات الأجهزة الجديدة في الأردن (نوفمبر 2026). أسعار المجموعة والأقساط محسوبة حسب نسب الخصم المتوقعة، ويُثبَّت السعر النهائي بعد اتفاق المورد. أسماء الماركات تعود لأصحابها.</p>
+<div class="card" style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap"><div><h3>عندك طلب خارج خدماتنا؟</h3><p>اقترح علينا المنتج الذي تريده، وسندرس إضافته كمجموعة شراء جماعي.</p></div><button class="btn" type="button" id="otherBtn">اقترح طلبك</button></div>
+</div></section>
+
+<section id="services"><div class="wrap">
+<h2>أقسام المنصة وخدماتها</h2>
+<p class="lead">كل ما يحتاجه الطالب في مكان واحد.</p>
+<div class="grid">
+<div class="card"><h3>الأجهزة الإلكترونية</h3><p>أجهزة اللابتوب والسماعات والملحقات.</p></div>
+<div class="card"><h3>المستلزمات الجامعية</h3><p>القرطاسية والأدوات الدراسية.</p></div>
+<div class="card"><h3>الاشتراكات الرقمية</h3><p>البرامج والخدمات الإلكترونية.</p></div>
+<div class="card"><h3>العروض والطلبات الجماعية</h3><p>الانضمام لمجموعات الشراء المخفضة.</p></div>
+<div class="card"><h3>المتابعة وخدمة العملاء</h3><p>تتبع الدفع والاستلام والرد على الاستفسارات.</p></div>
+</div>
+<h2 style="margin-top:44px;font-size:1.4rem">ماذا نقدم لك؟</h2>
+<div class="grid" style="margin-top:12px">
+<div class="card"><p>تجميع طلبات الطلاب على المنتجات المتشابهة للحصول على سعر الجملة.</p></div>
+<div class="card"><p>تتبّع حالة الطلب ومعرفة مراحل الشراء.</p></div>
+<div class="card"><p>إشعار فوري عند اكتمال المجموعة وتأكيد الطلب.</p></div>
+<div class="card"><p>تنظيم عمليات الدفع والاستلام وتقديم الدعم المستمر.</p></div>
+</div>
+</div></section>
+
+<section id="policy" class="alt"><div class="wrap">
+<h2>سياستنا في الجودة والتسعير</h2>
+<p class="lead">نريدك أن تشتري وأنت مطمئن.</p>
+<div class="two">
+<div class="card"><h3>سياسة الجودة</h3><p>نتعامل مع موردين موثوقين، ونراجع مواصفات المنتجات وأسعارها قبل عرضها، ونتابع الطلبات للتأكد من مطابقتها للمواصفات وضمان تجربة شراء آمنة.</p></div>
+<div class="card"><h3>سياسة التسعير</h3><p>نقدم أسعاراً جماعية مخفضة عبر التفاوض مع الموردين، ونحدد السعر النهائي بناءً على عدد المشاركين وتكلفة المنتج والشحن، مع توضيح قيمة التوفير لكل طالب.</p></div>
+<div class="card"><h3>الأمان والخصوصية</h3><p>نحمي بيانات المستخدمين ومعلوماتهم الشخصية، ونؤمّن عمليات الدفع الإلكتروني ونحتفظ بنسخ احتياطية دورية للبيانات.</p></div>
+<div class="card"><h3>موثوقية الموردين</h3><p>نتحقق من موثوقية كل مورد لضمان سلامة جميع العمليات.</p></div>
+</div>
+</div></section>
+
+<section id="support"><div class="wrap">
+<h2>الدعم الفني وخدمة العملاء</h2>
+<p class="lead">نتابع استفساراتك وطلباتك، ويمكنك إرسال طلبك إلكترونياً على مدار الساعة.</p>
+<div class="wabox"><div><h3>الدعم الفني عبر واتساب</h3><p>مشكلة تقنية أو استفسار عن طلبك؟ راسلنا مباشرة على الرقم <span class="num">0791482977</span> يومياً من 10:00 ص حتى 9:00 م.</p></div><a class="btn wa wa-link" href="https://wa.me/962791482977" target="_blank" rel="noopener" data-msg="مرحباً، أحتاج مساعدة من الدعم الفني في منصة سوا."><svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M16.03 3C9.4 3 4.02 8.37 4.02 15c0 2.36.69 4.55 1.87 6.41L4 29l7.77-1.83A12 12 0 0 0 16.03 27C22.66 27 28 21.63 28 15S22.66 3 16.03 3zm0 21.99c-1.9 0-3.67-.55-5.17-1.5l-.37-.22-4.6 1.08 1.1-4.48-.24-.38A9.94 9.94 0 0 1 6.03 15c0-5.52 4.49-10 10-10s9.97 4.48 9.97 10-4.46 9.99-9.97 9.99zm5.5-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.25-.58-.5-.5-.68-.5h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.1 3.2 5.08 4.5.7.3 1.26.48 1.69.62.7.22 1.35.2 1.86.12.57-.08 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.28-.2-.58-.35z"/></svg>تواصل عبر واتساب</a></div>
+<div class="two">
+<div>
+<h3 style="color:var(--blue)">أسئلة شائعة</h3>
+<div style="margin-top:12px">
+<details><summary>ما هو الشراء الجماعي؟</summary><p>تجميع طلبات عدة طلاب على المنتج نفسه، ثم الشراء من المورد بسعر الجملة بدل سعر القطعة المفردة.</p></details>
+<details><summary>كيف أعرف حالة طلبي؟</summary><p>يمكنك تتبع حالة طلبك ومعرفة مراحل الشراء، وسنُشعرك فور اكتمال المجموعة وتأكيد الطلب.</p></details>
+<details><summary>كيف يتحدد السعر النهائي؟</summary><p>حسب عدد المشاركين وتكلفة المنتج والشحن، مع توضيح قيمة التوفير لكل طالب.</p></details>
+<details><summary>كيف أدفع وأستلم؟</summary><p>ننظم عمليات الدفع والاستلام، وتتوفر آلية منظمة لاستلام وتوزيع المنتجات بالتعاون مع الموردين.</p></details>
+<details><summary>من يمكنه استخدام المنصة؟</summary><p>طلبة الجامعات في الأردن، بالإضافة إلى أعضاء الهيئات التدريسية والموظفين الجامعيين.</p></details>
+<details><summary>ما ساعات عمل الدعم؟</summary><p>يومياً من 10:00 صباحاً حتى 9:00 مساءً، مع إمكانية استقبال الطلبات إلكترونياً على مدار الساعة.</p></details>
+</div>
+<div class="hours">
+<div><small>الوردية الصباحية</small><b>9:00 ص – 3:00 م</b></div>
+<div><small>الوردية المسائية</small><b>3:00 م – 10:00 م</b></div>
+</div>
+</div>
+<div class="card">
+<h3>أرسل استفساراً أو طلباً</h3>
+<form id="contactForm" style="margin-top:12px">
+<label>الاسم<input name="n" required autocomplete="name"></label>
+<label>رقم الهاتف أو البريد<input name="c" required></label>
+<label>نوع الطلب<select name="t"><option>استفسار عن منتج</option><option>متابعة طلب</option><option>اقتراح منتج للشراء الجماعي</option><option>مشكلة تقنية</option></select></label>
+<label>الرسالة<textarea name="m" rows="4" required></textarea></label>
+<button class="btn" type="submit">أرسل الطلب</button>
+</form>
+</div>
+</div>
+</div></section>
+
+<section id="about" class="alt"><div class="wrap">
+<h2>عن مشروع سوا</h2>
+<p class="lead">مشروع ريادي من جامعة عمان العربية، ضمن مساق الريادة والابتكار (الشعبة 3)، بإشراف الدكتور صبري الدباس. نهدف إلى تعزيز التعاون بين الطلبة وتقليل التكاليف وتوفير الوقت والجهد، ونأمل أن يتوسع ليشمل جامعات ومناطق مختلفة.</p>
+<div class="two" style="margin-bottom:24px">
+<div class="card"><h3>فكرتنا</h3><p>منصة إلكترونية متخصصة في الشراء الجماعي لطلاب الجامعات، تجمع طلبات اللابتوب والسماعات والاشتراكات والمستلزمات الدراسية، وتشتري من الموردين مباشرة بسعر الجملة لتقليل التكلفة على الطالب.</p></div>
+<div class="card"><h3>لماذا سوا؟</h3><p>حاجة الطلاب للأجهزة والمستلزمات بأسعار مناسبة، والاستفادة من أسعار الجملة لتجاوز ارتفاع الأسعار الفردية، والجمع بين التكنولوجيا والتعاون الطلابي.</p></div>
+</div>
+<h3 style="color:var(--blue);margin-bottom:12px">فريق العمل</h3>
+<div class="team">
+<div class="card"><span>لينا أنس صالح المحتسب</span><em>202610036</em></div>
+<div class="card"><span>عبد الرحمن باسل مسلم صبيح</span><em>202611683</em></div>
+<div class="card"><span>وائل معن محمد العتيبي</span><em>202611138</em></div>
+<div class="card"><span>إبراهيم رائد أحمد مصطفى الحمدان</span><em>202610094</em></div>
+</div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<p><b>سوا (Swaa)</b> — الشراء الجماعي لطلاب الجامعات في الأردن.</p>
+<p>ساعات العمل: يومياً 10:00 ص – 9:00 م · استقبال الطلبات إلكترونياً على مدار الساعة.</p>
+<p>الدعم الفني على واتساب: <a class="wa-link num" href="https://wa.me/962791482977" target="_blank" rel="noopener">0791482977</a></p>
+<p>جامعة عمان العربية · مساق الريادة والابتكار · إشراف الدكتور صبري الدباس</p>
+</div></footer>
+<a class="wafloat wa-link" href="https://wa.me/962791482977" target="_blank" rel="noopener" data-msg="مرحباً، أحتاج مساعدة من الدعم الفني في منصة سوا." aria-label="الدعم الفني عبر واتساب"><svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M16.03 3C9.4 3 4.02 8.37 4.02 15c0 2.36.69 4.55 1.87 6.41L4 29l7.77-1.83A12 12 0 0 0 16.03 27C22.66 27 28 21.63 28 15S22.66 3 16.03 3zm0 21.99c-1.9 0-3.67-.55-5.17-1.5l-.37-.22-4.6 1.08 1.1-4.48-.24-.38A9.94 9.94 0 0 1 6.03 15c0-5.52 4.49-10 10-10s9.97 4.48 9.97 10-4.46 9.99-9.97 9.99zm5.5-7.48c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.23-.25-.58-.5-.5-.68-.5h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.1 3.2 5.08 4.5.7.3 1.26.48 1.69.62.7.22 1.35.2 1.86.12.57-.08 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.28-.2-.58-.35z"/></svg></a>
+<dialog id="orderDlg" aria-label="طلب شراء"><button class="x" type="button" aria-label="إغلاق">×</button>
+<h3>اطلب الآن</h3>
+<p class="note" style="margin:0 0 14px">عبّئ بياناتك كاملة، وسيُجهَّز طلبك لإرساله إلى فريق سوا عبر واتساب.</p>
+<form id="orderForm">
+<fieldset><legend>المنتج</legend>
+<div class="f2">
+<label>اختر المنتج<select name="p" id="oProd" required></select></label>
+<label>الكمية<input name="q" type="number" min="1" max="10" value="1" required></label>
+</div>
+<div id="oOther" class="hide f2" style="margin-top:12px">
+<label>اسم المنتج أو وصفه<input name="nm"></label>
+<label>رابط المنتج (اختياري)<input name="lk" type="url" dir="ltr" style="text-align:right"></label>
+<label>السعر التقريبي بالدينار (اختياري)<input name="pr" type="number" min="0"></label>
+</div>
+</fieldset>
+<fieldset><legend>بياناتك</legend>
+<div class="f2">
+<label>الاسم الكامل<input name="n" required autocomplete="name"></label>
+<label>رقم الهاتف (واتساب)<input name="ph" type="tel" required inputmode="tel" autocomplete="tel" dir="ltr" style="text-align:right" placeholder="07XXXXXXXX"></label>
+<label>البريد الإلكتروني<input name="em" type="email" required autocomplete="email" dir="ltr" style="text-align:right"></label>
+<label>الجامعة<input name="un" required></label>
+<label>الرقم الجامعي (اختياري)<input name="sid" inputmode="numeric"></label>
+</div>
+</fieldset>
+<fieldset><legend>الاستلام</legend>
+<div class="chips"><label><input type="radio" name="dl" value="hq" checked>من المقر</label><label><input type="radio" name="dl" value="home">توصيل</label></div>
+<div id="oAddr" class="hide f2" style="margin-top:12px">
+<label>المحافظة<select name="ct"><option value="">اختر المحافظة</option><option>عمّان</option><option>إربد</option><option>الزرقاء</option><option>البلقاء (السلط)</option><option>مأدبا</option><option>جرش</option><option>عجلون</option><option>الكرك</option><option>الطفيلة</option><option>معان</option><option>العقبة</option><option>المفرق</option></select></label>
+<label>العنوان التفصيلي<input name="ad" autocomplete="street-address"></label>
+</div>
+</fieldset>
+<fieldset id="oPay"><legend>الدفع</legend>
+<span class="im">نظام الدفع</span>
+<div class="chips"><label><input type="radio" name="pt" value="once" checked>دفعة واحدة</label><label><input type="radio" name="pt" value="inst">أقساط (بفائدة بسيطة)</label></div>
+<label id="oMBox" class="hide" style="margin-top:12px">مدة التقسيط<select name="mo" id="oMo"></select></label>
+<span class="im" style="margin-top:14px">طريقة الدفع</span>
+<div class="chips"><label><input type="radio" name="pm" value="cash" checked>كاش</label><label><input type="radio" name="pm" value="visa">فيزا (Visa)</label><label><input type="radio" name="pm" value="master">ماستر كارد (Mastercard)</label></div>
+<p class="note" style="margin-top:10px">لا تُدخل بيانات بطاقتك هنا؛ سيتواصل معك فريقنا لإتمام الدفع بأمان.</p>
+</fieldset>
+<label>ملاحظات (اختياري)<textarea name="nt" rows="2"></textarea></label>
+<div class="sum" id="oSum" aria-live="polite"></div>
+<button class="btn" type="submit">إرسال الطلب</button>
+</form></dialog>
+<dialog id="detail" aria-label="تفاصيل المنتج"><button class="x" aria-label="إغلاق">×</button><div id="dBody"></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ===== إعدادات التسعير (عدّلها حسب اتفاقك مع الموردين) ===== */
+const CFG={discMin:0.05,discMax:0.15,months:[3,6,12],rate:0.06}; // الخصم يزيد من 5% إلى 15% كلما اكتملت المجموعة · rate = فائدة بسيطة سنوية على الأقساط (0.06 = 6%)
+const rp=Math.round(CFG.rate*1000)/10;
+const S='<svg viewBox="0 0 200 130" role="img" aria-label="';
+const art={
+laptop:S+'لابتوب"><rect x="45" y="14" width="110" height="76" rx="7" fill="#143a80"/><rect x="51" y="20" width="98" height="64" rx="3" fill="#dbe8ff"/><path d="M60 70l22-24 16 16 12-10 28 18z" fill="#8fb3f0"/><path d="M28 96h144l-10 14H38z" fill="#c4cde0"/></svg>',
+headphones:S+'سماعات"><path d="M48 80V66a52 52 0 0 1 104 0v14" fill="none" stroke="#143a80" stroke-width="9" stroke-linecap="round"/><rect x="36" y="74" width="26" height="42" rx="12" fill="#e8891d"/><rect x="138" y="74" width="26" height="42" rx="12" fill="#e8891d"/></svg>',
+buds:S+'سماعات أذن"><rect x="60" y="30" width="80" height="72" rx="22" fill="#143a80"/><path d="M60 62h80" stroke="#8fb3f0" stroke-width="3"/><circle cx="100" cy="84" r="5" fill="#e8891d"/></svg>'
+};
+/* retail = سعر السوق التقريبي بالدينار (مصدر: إعلانات الأجهزة الجديدة على OpenSooq الأردن، نوفمبر 2026) */
+const offers=[
+{id:'lenovo-celeron',c:'لابتوبات',b:'Lenovo',t:'Lenovo Celeron – 8GB / 256GB',k:'laptop',retail:199,n:14,max:30,d:'لابتوب اقتصادي جديد مناسب للمحاضرات والتصفح وإعداد التقارير.',specs:[['المعالج','Intel Celeron'],['الذاكرة','8 جيجابايت RAM'],['التخزين','256 جيجابايت'],['النظام','Windows'],['الحالة','جديد']]},
+{id:'lenovo-i5',c:'لابتوبات',b:'Lenovo',t:'Lenovo Core i5 – 8GB / 512GB',k:'laptop',retail:449,n:21,max:30,d:'أداء متوازن للدراسة والمشاريع والبرامج الجامعية.',specs:[['المعالج','Intel Core i5'],['الذاكرة','8 جيجابايت RAM'],['التخزين','512 جيجابايت'],['النظام','Windows'],['الحالة','جديد']]},
+{id:'hp-victus',c:'لابتوبات',b:'HP',t:'HP Victus – Core i7 + RTX 5060',k:'laptop',retail:870,n:6,max:15,d:'لطلاب الهندسة والتصميم والألعاب، بكرت شاشة مخصص.',specs:[['المعالج','Intel Core i7'],['كرت الشاشة','NVIDIA RTX 5060'],['النظام','Windows'],['الحالة','جديد']]},
+{id:'airpods-4',c:'سماعات',b:'Apple',t:'Apple AirPods 4',k:'buds',retail:88,n:33,max:50,d:'سماعات أذن لاسلكية من أبل للدراسة والمكالمات.',specs:[['الجيل','الرابع'],['الاتصال','Bluetooth'],['الكفالة','كفالة أبل (حسب البائع)'],['الحالة','جديد']]},
+{id:'airpods-pro-3',c:'سماعات',b:'Apple',t:'Apple AirPods Pro 3',k:'buds',retail:165,n:12,max:30,d:'سماعات أبل الأحدث مع عزل الضوضاء.',specs:[['الجيل','Pro 3'],['الميزة','إلغاء الضوضاء'],['الاتصال','Bluetooth'],['الحالة','جديد']]},
+{id:'jbl-780nc',c:'سماعات',b:'JBL',t:'JBL Tune 780NC',k:'headphones',retail:75,n:19,max:40,d:'سماعة رأس بعزل ضوضاء ذكي مناسبة لساعات الدراسة الطويلة.',specs:[['الصوت','JBL Pure Bass'],['الضوضاء','Adaptive Noise Cancelling'],['الوضع المحيطي','Smart Ambient / TalkThru'],['النوع','سماعة رأس لاسلكية']]},
+{id:'jbl-beam-3',c:'سماعات',b:'JBL',t:'JBL Live Beam 3',k:'buds',retail:119,n:8,max:30,d:'سماعات أذن لاسلكية بصوت JBL المميز.',specs:[['النوع','TWS داخل الأذن'],['المحرك','10mm Dynamic'],['الصوت','JBL Signature + Pure Bass']]},
+{id:'sony-wfc510',c:'سماعات',b:'Sony',t:'Sony WF-C510',k:'buds',retail:55,n:25,max:40,d:'سماعات أذن لاسلكية خفيفة وبسعر اقتصادي.',specs:[['النوع','أذن لاسلكية TWS'],['الماركة','Sony'],['الحالة','جديد']]}
+];
+const cats=['الكل',...new Set(offers.map(o=>o.c))];
+const list=document.getElementById('offerList'),tabs=document.querySelector('.tabs'),toast=document.getElementById('toast'),dlg=document.getElementById('detail');
+let cur='الكل',mon=6;
+const disc=o=>CFG.discMin+(CFG.discMax-CFG.discMin)*Math.min(1,o.n/o.max);
+const gp=o=>Math.round(o.retail*(1-disc(o)));
+const tot=(o,m)=>gp(o)*(1+CFG.rate*m/12);
+const inst=(o,m)=>(tot(o,m)/m).toFixed(1);
+const pic=o=>`<img src="images/${o.id}.jpg" alt="${o.t}" loading="lazy" onerror="this.outerHTML=art['${o.k}']">`;
+function say(m){toast.textContent=m;toast.classList.add('on');setTimeout(()=>toast.classList.remove('on'),2600)}
+function join(i){const o=offers[i];if(o.n>=o.max)return;o.n++;draw();if(dlg.open)show(i);say(o.n>=o.max?'اكتملت المجموعة! وصلت لأفضل سعر.':'تم تسجيل انضمامك إلى: '+o.t)}
+function price(o){return `<div class="price"><s>${o.retail} د.أ سعر السوق</s><b>${gp(o)} د.أ</b><small>سعر المجموعة الحالي · وفّر ${o.retail-gp(o)} د.أ (${Math.round(disc(o)*100)}%)</small></div>`}
+function prog(o){const p=Math.min(100,Math.round(o.n/o.max*100));return `<div class="bar" role="progressbar" aria-valuenow="${p}" aria-valuemin="0" aria-valuemax="100"><i style="width:${p}%"></i></div><div class="meta"><span>${o.n} من ${o.max} مشارك</span><span>${o.max-o.n>0?'باقي '+(o.max-o.n):'اكتملت المجموعة'}</span></div>`}
+function draw(){
+tabs.innerHTML=cats.map(c=>`<button class="tab" aria-pressed="${c===cur}" data-c="${c}">${c}</button>`).join('');
+list.innerHTML=offers.map((o,i)=>({o,i})).filter(x=>cur==='الكل'||x.o.c===cur).map(({o,i})=>
+`<article class="card"><div class="pic">${pic(o)}</div><span class="tag">${o.b}</span><h3>${o.t}</h3>${price(o)}<small class="im">أو ${inst(o,6)} د.أ/شهر × 6 أشهر · بفائدة بسيطة</small>${prog(o)}
+<div class="row"><button class="btn sm" data-i="${i}" ${o.n>=o.max?'disabled':''}>${o.n>=o.max?'اكتملت المجموعة':'اطلب الآن'}</button><button class="btn sm ghost" data-d="${i}">التفاصيل</button></div></article>`).join('')}
+function show(i){const o=offers[i];
+const tiers=[0,.5,1].map(f=>{const dd=CFG.discMin+(CFG.discMax-CFG.discMin)*f;return `<tr><th>${Math.round(o.max*f)} مشارك</th><td>${Math.round(o.retail*(1-dd))} د.أ (خصم ${Math.round(dd*100)}%)</td></tr>`}).join('');
+document.getElementById('dBody').innerHTML=`<div class="dgrid"><div class="pic big">${pic(o)}</div><div><span class="tag">${o.b} · ${o.c}</span><h3>${o.t}</h3><p>${o.d}</p>${price(o)}${prog(o)}
+<button class="btn" data-i="${i}" ${o.n>=o.max?'disabled':''}>${o.n>=o.max?'اكتملت المجموعة':'اطلب الآن'}</button></div></div>
+<h4>المواصفات</h4><table>${o.specs.map(s=>`<tr><th>${s[0]}</th><td>${s[1]}</td></tr>`).join('')}</table>
+<h4>الدفع بالأقساط</h4><div class="tabs">${CFG.months.map(m=>`<button class="tab" aria-pressed="${m===mon}" data-m="${m}" data-o="${i}">${m} أشهر</button>`).join('')}</div>
+<p class="big2">${inst(o,mon)} د.أ <small>شهرياً لمدة ${mon} أشهر (الإجمالي ${tot(o,mon).toFixed(0)} د.أ شاملاً فائدة بسيطة ${rp}% سنوياً)</small></p>
+<h4>أسعار المجموعة حسب عدد المشاركين</h4><table>${tiers}</table>
+<p class="note">سعر السوق تقديري من إعلانات الأسعار في الأردن (نوفمبر 2026). سعر المجموعة والأقساط يُحسبان حسب نسب الخصم في إعدادات الموقع، ويُثبَّت السعر النهائي بعد اتفاق المورد وتأكيد الطلب.</p>`;
+if(!dlg.open)dlg.showModal()}
+tabs.addEventListener('click',e=>{const b=e.target.closest('.tab');if(b){cur=b.dataset.c;draw()}});
+list.addEventListener('click',e=>{const j=e.target.closest('[data-i]'),d=e.target.closest('[data-d]');if(j)openOrder(+j.dataset.i);if(d)show(+d.dataset.d)});
+dlg.addEventListener('click',e=>{const m=e.target.closest('[data-m]'),j=e.target.closest('[data-i]');if(m){mon=+m.dataset.m;show(+m.dataset.o)}else if(j){dlg.close();openOrder(+j.dataset.i)}else if(e.target===dlg||e.target.closest('.x'))dlg.close()});
+document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();e.target.reset();say('وصلنا طلبك، وسنرد عليك خلال ساعات العمل.')});
+/* ===== الطلب والدعم عبر واتساب ===== */
+const WA='962791482977',ordDlg=document.getElementById('orderDlg'),ordForm=document.getElementById('orderForm'),$=id=>document.getElementById(id);
+const waUrl=m=>'https://wa.me/'+WA+(m?'?text='+encodeURIComponent(m):'');
+document.querySelectorAll('.wa-link').forEach(a=>a.href=waUrl(a.dataset.msg||''));
+const fmt=n=>String(Math.round(n*10)/10);
+const PM={cash:'كاش',visa:'فيزا (Visa)',master:'ماستر كارد (Mastercard)'};
+$('oProd').innerHTML=offers.map((o,i)=>`<option value="${i}"${o.n>=o.max?' disabled':''}>${o.t}</option>`).join('')+'<option value="other">طلب خارج خدماتنا — اقترحه علينا</option>';
+$('oMo').innerHTML=CFG.months.map(m=>`<option value="${m}">${m} أشهر</option>`).join('');
+function calc(){const f=ordForm.elements,o=f.p.value==='other'?null:offers[+f.p.value],q=Math.max(1,Math.min(10,Math.round(+f.q.value)||1)),isInst=f.pt.value==='inst',m=+f.mo.value||CFG.months[0],u=o?gp(o):0,sub=u*q,t=isInst?sub*(1+CFG.rate*m/12):sub;return{f,o,q,isInst,m,u,sub,t}}
+function sync(){const{f,o,q,isInst,m,u,sub,t}=calc(),home=f.dl.value==='home';
+$('oOther').classList.toggle('hide',!!o);f.nm.required=!o;
+$('oPay').classList.toggle('hide',!o);
+$('oMBox').classList.toggle('hide',!isInst);
+$('oAddr').classList.toggle('hide',!home);f.ct.required=home;f.ad.required=home;
+let h;
+if(!o)h='<p>سنراجع اقتراحك ونتواصل معك بعرض سعر إن توفّر مورد مناسب.</p>';
+else{h=`<div><span>سعر الوحدة (سعر المجموعة الحالي)</span><b>${u} د.أ</b></div><div><span>الكمية</span><b>${q}</b></div>`;
+if(isInst)h+=`<div><span>الفائدة البسيطة (${rp}% سنوياً)</span><b>${fmt(t-sub)} د.أ</b></div><div><span>الإجمالي بعد الفائدة</span><b>${fmt(t)} د.أ</b></div><div><span>القسط الشهري × ${m}</span><b>${fmt(t/m)} د.أ</b></div>`;
+else h+=`<div><span>الإجمالي (دفعة واحدة)</span><b>${fmt(sub)} د.أ</b></div>`;
+h+='<p class="note" style="margin-top:8px">السعر النهائي يُثبَّت بعد اتفاق المورد وتأكيد الطلب.</p>'}
+$('oSum').innerHTML=h}
+function openOrder(i){ordForm.elements.p.value=i;sync();if(!ordDlg.open)ordDlg.showModal()}
+ordForm.addEventListener('input',sync);ordForm.addEventListener('change',sync);
+ordDlg.addEventListener('click',e=>{if(e.target.closest('.x'))ordDlg.close()});
+$('otherBtn').addEventListener('click',()=>openOrder('other'));
+ordForm.addEventListener('submit',e=>{e.preventDefault();const{f,o,q,isInst,m,u,sub,t}=calc(),home=f.dl.value==='home';
+const L=['طلب جديد من موقع سوا',''];
+L.push(o?'المنتج: '+o.t:'طلب خارج خدماتنا: '+f.nm.value+(f.lk.value?' | الرابط: '+f.lk.value:'')+(f.pr.value?' | السعر التقريبي: '+f.pr.value+' د.أ':''));
+L.push('الكمية: '+q);
+if(o){L.push('سعر الوحدة: '+u+' د.أ');
+L.push(isInst?'الإجمالي بعد الفائدة البسيطة ('+rp+'% سنوياً): '+fmt(t)+' د.أ — '+m+' أشهر، القسط الشهري '+fmt(t/m)+' د.أ':'الإجمالي: '+fmt(sub)+' د.أ');
+L.push('الدفع: '+(isInst?'أقساط':'دفعة واحدة')+' — '+PM[f.pm.value])}
+L.push('','الاسم: '+f.n.value,'الهاتف: '+f.ph.value,'البريد: '+f.em.value,'الجامعة: '+f.un.value);
+if(f.sid.value)L.push('الرقم الجامعي: '+f.sid.value);
+L.push('الاستلام: '+(home?'توصيل — '+f.ct.value+'، '+f.ad.value:'من المقر'));
+if(f.nt.value)L.push('ملاحظات: '+f.nt.value);
+if(o&&o.n<o.max){o.n++;draw()}
+ordDlg.close();ordForm.reset();sync();
+window.open(waUrl(L.join('\n')),'_blank','noopener');
+say(o?'تم تجهيز طلبك، أرسله عبر واتساب لتأكيده.':'تم تجهيز اقتراحك، أرسله عبر واتساب لنتواصل معك.')});
+sync();
+draw();
+</script>
+
+
+</body>
+</html>
